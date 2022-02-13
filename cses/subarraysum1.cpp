@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main(void){
+    int n, x;
+    cin >> n >> x;
+    int left = 0;
+    int sum = 0;
+    int ans = 0;
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        cin >> arr[i];
+    }
+    for(int right = 0; right < n; right++){
+        sum += arr[right];
+        while(sum > x){
+            sum -= arr[left];
+            left++;
+        }
+        if(sum == x){
+            ans++;
+        }
+    }
+    cout << ans << "\n";
+    return 0;
+}
